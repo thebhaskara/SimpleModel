@@ -1,0 +1,40 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sample</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div id="text"></div>
+    <script type="text/javascript" src="node_modules/lodash/lodash.js"></script>
+    <script type="text/javascript" src="SimpleModel.js"></script>
+    <script type="text/javascript">
+        var bhaskara = {
+            name: {
+                first: 'Bhaskara',
+                last: 'Busam'
+            },
+            age: 27,
+            dob: '23-aug-1988'
+        }
+
+        var SimpleBhaskara = new SimpleModel(bhaskara);
+
+        SimpleBhaskara.$watch('age', 'change', function(age){
+            console.log(age);
+        })
+
+        SimpleBhaskara.$watch('dob', 'change', function(dob){
+            console.log(dob);
+        })
+
+        SimpleBhaskara.age = 10;
+
+        SimpleBhaskara.dob = {day:23,month:8,year:1988};
+    </script>
+</body>
+
+</html>

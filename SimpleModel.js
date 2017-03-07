@@ -63,6 +63,12 @@
     }
 
     SimpleModel.prototype.$watch = function(namespace, event, callback) {
+        var indexOfDot = namespace.indexOf('.');
+        if (indexOfDot > 0) {
+            var remainingNamespace = namespace.substring(indexOfDot + 1);
+            namespace = namespace.substring(0, indexOfDot);
+            return this[namespace].$watch(remainingNamespace, event, callback);
+        }
         var watcher = this.$watchers[namespace];
         if (!watcher) {
             watcher = this.$watchers[namespace] = {};

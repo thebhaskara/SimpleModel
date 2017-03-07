@@ -23,6 +23,10 @@
 
         var SimpleBhaskara = new SimpleModel(bhaskara);
 
+        SimpleBhaskara.$watch('name.first', 'change', function(first){
+            console.log(first);
+        })
+
         SimpleBhaskara.$watch('age', 'change', function(age){
             console.log(age);
         })
@@ -34,6 +38,8 @@
         SimpleBhaskara.age = 10;
 
         SimpleBhaskara.dob = {day:23,month:8,year:1988};
+
+        SimpleBhaskara.name.first = 'Rama';
     </script>
 </body>
 

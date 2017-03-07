@@ -5,7 +5,7 @@
         var lodash = require('lodash');
         module.exports = factory(lodash);
     } else {
-        root.pakka = factory(_);
+        root.SimpleModel = factory(_);
     }
 }(this, function(lodash) {
     'use strict'
@@ -83,12 +83,12 @@
         var needToContinue = true;
         lodash.each(this.$watchers, function(watcher) {
             lodash.each(watcher, function(cbs) {
-                lodash.each(cbs, function(cd, cbid)) {
+                lodash.each(cbs, function(cd, cbid) {
                     if (id == cbid) {
                         delete cbs[cbid];
                         return needToContinue = false;
                     }
-                }
+                });
                 return needToContinue;
             })
             return needToContinue;
